@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link, Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 
 const defaultState = {
   name: '',
@@ -6,7 +8,7 @@ const defaultState = {
   cpassword: '',
   nameError: '',
   passwordError: '',
-  cpasswordError: ''
+  cpasswordError: '',
 }
 
 class FormValidation extends React.Component {
@@ -59,14 +61,23 @@ class FormValidation extends React.Component {
     return true;
   }
 
+  saveList() {
+    localStorage.setItem('name', JSON.stringify(this.state.name))
+  }
+
   submit() {
+
     if (this.validate()) {
+      this.setState({redirect:true})
+      this.saveList();
       console.warn(this.state);
       this.setState(defaultState);
     }
   }
 
   render() {
+    const { redirect } = this.state;
+    if (redirect) return <Redirect to="/newlead" />;
     return (
       <div>
         <div className="row">
@@ -100,13 +111,13 @@ class FormValidation extends React.Component {
 
             <div className="form-row">
               <div className="col-md-12 text-center">
-                <button type="submit" className="btn btn-primary" onClick={() => this.submit()}>Registrar</button>
-              </div>
+                <button type="button" className="btn btn-primary" onClick={() => this.submit()}>Registrar</button>
             </div>
-
           </div>
+
         </div>
       </div>
+      </div >
     )
   }
 }
