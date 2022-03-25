@@ -1,6 +1,5 @@
 import React from 'react'
-import { Link, Redirect } from 'react-router-dom';
-// import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 const defaultState = {
   name: '',
@@ -20,11 +19,7 @@ class FormValidation extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  handleInputChange(event) {
-    const target = event.target;
-    let value = target.value;
-    const name = target.name;
-
+  handleInputChange({ target: { name, value } }) {
     this.setState({
       [name]: value
     });
