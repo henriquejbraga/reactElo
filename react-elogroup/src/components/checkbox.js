@@ -1,28 +1,60 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
+// https://www.youtube.com/watch?v=mGV9r0wgCrI
+
+const checkList = [{ name: "RPA" }, { name: "Produto Digital" }, { name: "Analytics" }, { name: "BPM" }];
 
 export default function Checkbox() {
-  const [checked, setChecked] = useState([]);
-  const checkList = ["RPA", "Produto Digital", "Analytics", "BPM"];
+
+  const [leads, setLeads] = useState([]);
+
+  useEffect(() => {
+    setLeads(checkList);
+  }, []);
+
+  const handleChange = (event) => {
+    const { name, checked } = event.target;
+    if (name === "allSelect") {
+      let tempLead = leads.map((lead) => {
+        return { ...lead, isChecked: checked };
+      });
+      setLeads(tempLead);
+    } else {
+      let tempLead = leads.map((lead) =>
+      lead.name === name ? { ...lead, isChecked: checked } : lead
+      );
+      setLeads(tempLead);
+    }
+  };
 
   return (
-    <div>
-      <label>
-        <input type="checkbox"
-          defaultChecked={checked}
-          onChange={() => setChecked(!checked)}
-        />
-
-        <div className="list-container">
-          {checkList.map((item, index) => (
-            <div key={index}>
-              <input value={item} type="checkbox" onChange={() => setChecked(!checked)} />
-              <span >{item}</span>
-            </div>
-          ))}
+    <div className="container my-4">
+      <form className="form w-100">
+        <h3>Oportunidades*</h3>
+        <div className="form-check">
+          <input
+            type="checkbox"
+            className="form-check-input"
+            name="allSelect"
+            checked={!leads.some((lead) => lead.isChecked !== true)}
+            onChange={handleChange}
+          />
+          <label className="form-check-label ms-2">All Select</label>
         </div>
-      </label>
+        {leads.map((lead, index) => (
+          <div className="form-check" key={index}>
+            <input
+              type="checkbox"
+              className="form-check-input"
+              name={lead.name}
+              checked={lead.isChecked || false}
+              onChange={handleChange}
+              required
+            />
+            <label className="form-check-label ms-2">{lead.name}</label>
+          </div>
+        ))}
+      </form>
     </div>
-
   );
 }
