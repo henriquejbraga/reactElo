@@ -1,5 +1,8 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom';
+import elogroup from '../elogroup.png'
+import '../css/Login.css'
+
 
 const defaultState = {
   name: '',
@@ -75,6 +78,8 @@ class FormValidation extends React.Component {
     if (redirect) return <Redirect to="/leadpanel" />;
     return (
       <div>
+        <img src={elogroup} alt="elogroup" className="elogroup" />
+
         <div className="row">
           <div className="col-md-6 offset-md-3">
 
