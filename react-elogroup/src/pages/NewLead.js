@@ -28,22 +28,22 @@ export default function NewLead() {
     event.preventDefault();
     setRedirect({ redirect: true });
     localStoragess()
-    alert("lead cadastrado com sucesso")
+    alert('lead cadastrado com sucesso')
   }
 
-  if (redirect) return <Redirect to="/leadpanel" />;
+  if (redirect) return <Redirect to='/leadpanel' />;
 
   return (
     <main>
       <div className='newlead' >
         <div className='center'>
-          <img src={elogroup} alt="elogroup" className="elogroup" />
+          <img src={elogroup} alt='elogroup' className='elogroup' />
           <br></br>
           <div className='input'>
             <label>Nome*</label>
             <input
-              type="text"
-              name="username"
+              type='text'
+              name='username'
               value={form.username}
               onChange={handleChange}
             />
@@ -52,8 +52,8 @@ export default function NewLead() {
           <div className='input'>
             <label>Telefone*</label>
             <input
-              type="text"
-              name="tel"
+              type='text'
+              name='tel'
               value={form.tel}
               onChange={handleChange}
             />
@@ -62,8 +62,8 @@ export default function NewLead() {
           <div className='input'>
             <label>Email*</label>
             <input
-              type="mail"
-              name="email"
+              type='mail'
+              name='email'
               value={form.email}
               onChange={handleChange}
             />
@@ -75,7 +75,7 @@ export default function NewLead() {
 
         <div className='button'>
           <button
-            type="button"
+            type='button'
             disabled={!form.email || !form.username || !form.tel}
             onClick={handleClick}
           >

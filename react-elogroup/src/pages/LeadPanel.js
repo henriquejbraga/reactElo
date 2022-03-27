@@ -1,5 +1,3 @@
-// import React, { useState, useEffect } from "react";
-
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
 
@@ -25,10 +23,10 @@ export default function LeadPanel() {
   }
 
   return (
-    <div className="leadpanel">
-      <img src={elogroup} alt="elogroup" className="elogroupleadpanel" />
-      <h3 className="h3"> Painel de Leads</h3>
-      <div className="link">
+    <div className='leadpanel'>
+      <img src={elogroup} alt='elogroup' className='elogroupleadpanel' />
+      <h3 className='h3'> Painel de Leads</h3>
+      <div className='link'>
         <Link to='/newlead'>Novo Lead (+)</Link>
       </div>
       <table>
