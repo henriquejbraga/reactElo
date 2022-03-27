@@ -1,0 +1,38 @@
+.leadpanel{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+}
+.elogroupleadpanel{
+  width: 250px;
+  display: flex;
+  /* margin-right: 400px; */
+}
+.h3{
+  font-size: 30px;
+  margin-top: 40px;
+}
+a:link {
+  text-decoration: none;
+  font-size: 20px;
+  background-color: rgb(128, 183, 255);
+  margin-right: 645px;
+}
+table{
+  border: 1px solid black;
+}
+table th {
+  border: 1px solid black;
+  background: #e8ffe8;
+  width: 250px;
+  height: 50px;
+  font-size: 18px;
+}
+table td {
+  border: 1px solid black;
+  width: 250px;
+  height: 50px;
+  font-size: 18px;
+}
+

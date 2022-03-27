@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
 
 import elogroup from '../elogroup.png'
+import '../css/LeadPanel.css'
 
 export default function LeadPanel() {
   const [lead, setLead] = useState([]);
@@ -11,10 +12,10 @@ export default function LeadPanel() {
   const username = JSON.parse(localStorage.getItem('user'))
 
   return (
-    <div>
-      <img src={elogroup} alt="elogroup" className="elogroup" />
-      <h3> Painel de Leads</h3>
-      <div>
+    <div className="leadpanel">
+      <img src={elogroup} alt="elogroup" className="elogroupleadpanel" />
+      <h3 className="h3"> Painel de Leads</h3>
+      <div className="link">
         <Link to='/newlead'>Novo Lead (+)</Link>
       </div>
       <table>
