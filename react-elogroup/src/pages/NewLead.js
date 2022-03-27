@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router';
 import Checkbox from '../components/checkbox';
 import { useHistory } from 'react-router-dom';
+import elogroup from '../elogroup.png'
+
 // import useLocalStorage from '../components/localStorage';
 
 export default function NewLead() {
@@ -47,6 +49,7 @@ export default function NewLead() {
   return (
     <main data-testid="page-login">
       <div >
+      <img src={elogroup} alt="elogroup" className="elogroup" />
         <div>
           <label>Nome*</label>
           <input
