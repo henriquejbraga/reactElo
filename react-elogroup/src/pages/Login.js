@@ -30,25 +30,25 @@ class FormValidation extends React.Component {
   }
 
   validate() {
-    let nameError = "";
-    let passwordError = "";
-    let cpasswordError = "";
+    let nameError = '';
+    let passwordError = '';
+    let cpasswordError = '';
 
     if (!this.state.name) {
-      nameError = "Name field is required";
+      nameError = 'Name field is required';
     }
 
-    const strongRegex = new RegExp("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$");
+    const strongRegex = new RegExp('^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$');
     if (!this.state.password || strongRegex.test(this.state.cpassword) === false) {
-      passwordError = "Password precisa ter oito caracterese ao menos um caracter especial, um caracter numérico e um alfanumérico"
+      passwordError = 'Password precisa ter oito caracterese ao menos um caracter especial, um caracter numérico e um alfanumérico'
     }
 
     if (!this.state.cpassword || strongRegex.test(this.state.cpassword) === false) {
-      cpasswordError = "Password precisa ter oito caracterese ao menos um caracter especial, um caracter numérico e um alfanumérico"
+      cpasswordError = 'Password precisa ter oito caracterese ao menos um caracter especial, um caracter numérico e um alfanumérico'
     }
 
     if (this.state.password !== this.state.cpassword) {
-      cpasswordError = "Passwords precisam ser iguais";
+      cpasswordError = 'Passwords precisam ser iguais';
     }
 
     if (nameError || passwordError || cpasswordError) {
@@ -73,33 +73,33 @@ class FormValidation extends React.Component {
 
   render() {
     const { redirect, name, nameError, password, passwordError, cpassword, cpasswordError } = this.state;
-    if (redirect) return <Redirect to="/leadpanel" />;
+    if (redirect) return <Redirect to='/leadpanel' />;
     return (
       <div className='login'>
         <div className='center'>
-          <img src={elogroup} alt="elogroup" className="elogrouplogin" />
-          <div className="row">
-            <div className="form-row">
+          <img src={elogroup} alt='elogroup' className='elogrouplogin' />
+          <div className='row'>
+            <div className='form-row'>
               <label>Nome*</label>
               <br></br>
-              <input type="text" className="form-control" name="name" value={name} onChange={this.handleInputChange} required />
-              <span className="text-danger">{nameError}</span>
+              <input type='text' className='form-control' name='name' value={name} onChange={this.handleInputChange} required />
+              <span className='text-danger'>{nameError}</span>
             </div>
 
-            <div className="form-row">
+            <div className='form-row'>
               <label>Password*</label>
-              <input type="password" className="form-control" name="password" value={password} onChange={this.handleInputChange} required />
+              <input type='password' className='form-control' name='password' value={password} onChange={this.handleInputChange} required />
               <span className="text-danger">{passwordError}</span>
             </div>
 
-            <div className="form-row">
+            <div className='form-row'>
               <label>Confirmação Password*</label>
-              <input type="password" className="form-control" name="cpassword" value={cpassword} onChange={this.handleInputChange} required />
-              <span className="text-danger">{cpasswordError}</span>
+              <input type='password' className='form-control' name='cpassword' value={cpassword} onChange={this.handleInputChange} required />
+              <span className='text-danger'>{cpasswordError}</span>
             </div>
 
-            <div className="form-row">
-              <button type="button" className="btn btn-primary" onClick={() => this.submit()} disabled={!name || !password || !cpassword}>Registrar</button>
+            <div className='form-row'>
+              <button type='button' className='btn btn-primary' onClick={() => this.submit()} disabled={!name || !password || !cpassword}>Registrar</button>
             </div>
           </div>
         </div>
