@@ -2,28 +2,16 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router';
 import Checkbox from '../components/checkbox';
 import { useHistory } from 'react-router-dom';
-import elogroup from '../elogroup.png'
-
-// import useLocalStorage from '../components/localStorage';
+import elogroup from '../elogroup.png';
+import '../css/NewLead.css';
 
 export default function NewLead() {
   const history = useHistory();
-  const [form, setForm] = useState({ username:'', tel:'', email:''});
+  const [form, setForm] = useState({ username: '', tel: '', email: '' });
   const [redirect, setRedirect] = useState(false)
-  // this.state = {
-  //   username: '',
-  //   tel: '',
-  //   email: '',
-  //   redirect: false,
-  //   required: false,
-  // };
-
-  // const handleChange = ({ target: { name, value } }) => {
-  //   setState({ [name]: value });
-  // }
 
   const localStoragess = () => {
-    localStorage.setItem('user', JSON.stringify( form.username))
+    localStorage.setItem('user', JSON.stringify(form.username))
     return history.push('/leadpanel');
   }
 
@@ -31,11 +19,6 @@ export default function NewLead() {
     const { name, value } = target;
     setForm({ ...form, [name]: value });
   };
-
-  // const saveList = () => {
-  //   const { username } = this.state
-  //   localStorage.setItem('username', JSON.stringify(username))
-  // }
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -47,53 +30,50 @@ export default function NewLead() {
   if (redirect) return <Redirect to="/leadpanel" />;
 
   return (
-    <main data-testid="page-login">
-      <div >
-      <img src={elogroup} alt="elogroup" className="elogroup" />
-        <div>
-          <label>Nome*</label>
-          <input
-            type="text"
-            data-testid="login-name-input"
-            name="username"
-            value={form.username}
-            onChange={handleChange}
-          />
-        </div>
+    <main>
+      <div className='newlead' >
+        <div className='center'>
+          <img src={elogroup} alt="elogroup" className="elogroup" />
+          <br></br>
+          <div className='input'>
+            <label>Nome*</label>
+            <input
+              type="text"
+              name="username"
+              value={form.username}
+              onChange={handleChange}
+            />
+          </div>
 
-        <div>
-          <label>Telefone*</label>
-          <input
-            type="text"
-            data-testid="login-tel-input"
-            name="tel"
-            value={form.tel}
-            onChange={handleChange}
-          />
-        </div>
+          <div className='input'>
+            <label>Telefone*</label>
+            <input
+              type="text"
+              name="tel"
+              value={form.tel}
+              onChange={handleChange}
+            />
+          </div>
 
-        <div>
-          <label>Email*</label>
-          <input
-            type="mail"
-            data-testid="login-email-input"
-            name="email"
-            value={form.email}
-            onChange={handleChange}
-          />
+          <div className='input'>
+            <label>Email*</label>
+            <input
+              type="mail"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+            />
+          </div>
         </div>
-
-        <div>
+        <div className='checkbox'>
           <Checkbox />
         </div>
 
-        <div>
+        <div className='button'>
           <button
             type="button"
-            data-testid="login-submit-button"
             disabled={!form.email || !form.username || !form.tel}
             onClick={handleClick}
-
           >
             Salvar
           </button>
@@ -101,5 +81,4 @@ export default function NewLead() {
       </div>
     </main >
   );
-
 }

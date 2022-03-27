@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import '../css/checkbox.css'
 // https://www.youtube.com/watch?v=mGV9r0wgCrI
 
 const checkList = [{ name: "RPA" }, { name: "Produto Digital" }, { name: "Analytics" }, { name: "BPM" }];
@@ -29,6 +29,7 @@ export default function Checkbox() {
 
   return (
     <div className="container my-4">
+      <h3>Novo Lead</h3>
       <form className="form w-100">
         <h3>Oportunidades*</h3>
         <div className="form-check">
