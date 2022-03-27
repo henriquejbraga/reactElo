@@ -67,7 +67,6 @@ class FormValidation extends React.Component {
     if (this.validate()) {
       this.setState({ redirect: true })
       this.saveList();
-      console.warn(this.state);
       this.setState(defaultState);
     }
   }
@@ -80,28 +79,28 @@ class FormValidation extends React.Component {
         <div className='center'>
           <img src={elogroup} alt="elogroup" className="elogrouplogin" />
           <div className="row">
-              <div className="form-row">
-                  <label>Nome*</label>
-                  <br></br>
-                  <input type="text" className="form-control" name="name" value={name} onChange={this.handleInputChange} required />
-                  <span className="text-danger">{nameError}</span>
-              </div>
+            <div className="form-row">
+              <label>Nome*</label>
+              <br></br>
+              <input type="text" className="form-control" name="name" value={name} onChange={this.handleInputChange} required />
+              <span className="text-danger">{nameError}</span>
+            </div>
 
-              <div className="form-row">
-                  <label>Password*</label>
-                  <input type="password" className="form-control" name="password" value={password} onChange={this.handleInputChange} required />
-                  <span className="text-danger">{passwordError}</span>
-              </div>
+            <div className="form-row">
+              <label>Password*</label>
+              <input type="password" className="form-control" name="password" value={password} onChange={this.handleInputChange} required />
+              <span className="text-danger">{passwordError}</span>
+            </div>
 
-              <div className="form-row">
-                  <label>Confirmação Password*</label>
-                  <input type="password" className="form-control" name="cpassword" value={cpassword} onChange={this.handleInputChange} required />
-                  <span className="text-danger">{cpasswordError}</span>
-              </div>
+            <div className="form-row">
+              <label>Confirmação Password*</label>
+              <input type="password" className="form-control" name="cpassword" value={cpassword} onChange={this.handleInputChange} required />
+              <span className="text-danger">{cpasswordError}</span>
+            </div>
 
-              <div className="form-row">
-                  <button type="button" className="btn btn-primary" onClick={() => this.submit()} disabled={!name || !password || !cpassword}>Registrar</button>
-              </div>
+            <div className="form-row">
+              <button type="button" className="btn btn-primary" onClick={() => this.submit()} disabled={!name || !password || !cpassword}>Registrar</button>
+            </div>
           </div>
         </div>
       </div >

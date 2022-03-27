@@ -12,7 +12,7 @@ export default function LeadPanel() {
 
   const username = JSON.parse(localStorage.getItem('user'))
   const render = () => {
-    return !username ? null : username.map((( name ) => {
+    return !username ? null : username.map(((name) => {
       console.log(name);
       return (
         <tr key={name}>
@@ -41,16 +41,6 @@ export default function LeadPanel() {
         </thead>
         <tbody>
           {render()}
-          {/* <tr>
-            <td>
-              {username}
-            </td>
-          </tr>
-          <tr>
-            <td>
-              {username}
-            </td>
-          </tr> */}
         </tbody>
       </table>
     </div>

@@ -10,15 +10,15 @@ export default function NewLead() {
   const [form, setForm] = useState({ username: '', tel: '', email: '' });
   const [redirect, setRedirect] = useState(false)
 
-  const dataObjeto = ( form.username )
+  const dataObjeto = (form.username)
 
   const localStoragess = () => {
-  if( localStorage.getItem('user') === null) {
-    localStorage.setItem('user', JSON.stringify([dataObjeto]))
-  } else {
-    localStorage.setItem('user', JSON.stringify([...JSON.parse(localStorage.getItem('user')), dataObjeto]))
+    if (localStorage.getItem('user') === null) {
+      localStorage.setItem('user', JSON.stringify([dataObjeto]))
+    } else {
+      localStorage.setItem('user', JSON.stringify([...JSON.parse(localStorage.getItem('user')), dataObjeto]))
+    }
   }
-}
   const handleChange = ({ target }) => {
     const { name, value } = target;
     setForm({ ...form, [name]: value });
