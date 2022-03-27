@@ -9,7 +9,20 @@ import '../css/LeadPanel.css'
 export default function LeadPanel() {
   const [lead, setLead] = useState([]);
 
+
   const username = JSON.parse(localStorage.getItem('user'))
+  const render = () => {
+    return !username ? null : username.map((( name ) => {
+      console.log(name);
+      return (
+        <tr key={name}>
+          <td>
+            {name}
+          </td>
+        </tr>
+      )
+    }))
+  }
 
   return (
     <div className="leadpanel">
@@ -27,11 +40,17 @@ export default function LeadPanel() {
           </tr>
         </thead>
         <tbody>
-          <tr>
+          {render()}
+          {/* <tr>
             <td>
               {username}
             </td>
           </tr>
+          <tr>
+            <td>
+              {username}
+            </td>
+          </tr> */}
         </tbody>
       </table>
     </div>
