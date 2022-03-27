@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router';
 import Checkbox from '../components/checkbox';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import elogroup from '../elogroup.png';
 import '../css/NewLead.css';
 
 export default function NewLead() {
-  const history = useHistory();
+  // const history = useHistory();
   const [form, setForm] = useState({ username: '', tel: '', email: '' });
   const [redirect, setRedirect] = useState(false)
 
-  const localStoragess = () => {
-    localStorage.setItem('user', JSON.stringify(form.username))
-    return history.push('/leadpanel');
-  }
+  const dataObjeto = ( form.username )
 
+  const localStoragess = () => {
+  if( localStorage.getItem('user') === null) {
+    localStorage.setItem('user', JSON.stringify([dataObjeto]))
+  } else {
+    localStorage.setItem('user', JSON.stringify([...JSON.parse(localStorage.getItem('user')), dataObjeto]))
+  }
+}
   const handleChange = ({ target }) => {
     const { name, value } = target;
     setForm({ ...form, [name]: value });
