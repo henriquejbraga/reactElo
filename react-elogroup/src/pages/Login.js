@@ -78,7 +78,7 @@ class FormValidation extends React.Component {
     return (
       <div className='login'>
         <div className='center'>
-          <img src={elogroup} alt="elogroup" className="elogroup" />
+          <img src={elogroup} alt="elogroup" className="elogrouplogin" />
           <div className="row">
               <div className="form-row">
                   <label>Nome*</label>
