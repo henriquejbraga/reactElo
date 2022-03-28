@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router';
 import Checkbox from '../components/checkbox';
-// import { useHistory } from 'react-router-dom';
 import elogroup from '../elogroup.png';
 import '../css/NewLead.css';
 
 export default function NewLead() {
-  // const history = useHistory();
   const [form, setForm] = useState({ username: '', tel: '', email: '' });
   const [redirect, setRedirect] = useState(false)
 
@@ -19,6 +17,7 @@ export default function NewLead() {
       localStorage.setItem('user', JSON.stringify([...JSON.parse(localStorage.getItem('user')), dataObjeto]))
     }
   }
+
   const handleChange = ({ target }) => {
     const { name, value } = target;
     setForm({ ...form, [name]: value });
@@ -48,7 +47,6 @@ export default function NewLead() {
               onChange={handleChange}
             />
           </div>
-
           <div className='input' data-testid='tel'>
             <label>Telefone*</label>
             <input
@@ -58,7 +56,6 @@ export default function NewLead() {
               onChange={handleChange}
             />
           </div>
-
           <div className='input' data-testid='email'>
             <label>Email*</label>
             <input
@@ -72,7 +69,6 @@ export default function NewLead() {
         <div className='checkbox' data-testid='checkbox' >
           <Checkbox />
         </div>
-
         <div className='button'>
           <button
             type='button'

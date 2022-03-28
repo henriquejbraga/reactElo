@@ -3,7 +3,6 @@ import { Redirect } from 'react-router-dom';
 import elogroup from '../elogroup.png'
 import '../css/Login.css'
 
-
 const defaultState = {
   name: '',
   password: '',
@@ -42,15 +41,12 @@ class FormValidation extends React.Component {
     if (!this.state.password || strongRegex.test(this.state.cpassword) === false) {
       passwordError = 'Password precisa ter oito caracterese ao menos um caracter especial, um caracter numérico e um alfanumérico'
     }
-
     if (!this.state.cpassword || strongRegex.test(this.state.cpassword) === false) {
       cpasswordError = 'Password precisa ter oito caracterese ao menos um caracter especial, um caracter numérico e um alfanumérico'
     }
-
     if (this.state.password !== this.state.cpassword) {
       cpasswordError = 'Passwords precisam ser iguais';
     }
-
     if (nameError || passwordError || cpasswordError) {
       this.setState({ nameError, passwordError, cpasswordError });
       return false;
@@ -85,19 +81,16 @@ class FormValidation extends React.Component {
               <input type='text' className='form-control' name='name' value={name} onChange={this.handleInputChange} required />
               <span className='text-danger'>{nameError}</span>
             </div>
-
             <div className='form-row' data-testid='password'>
               <label>Password*</label>
               <input type='password' className='form-control' name='password' value={password} onChange={this.handleInputChange} required />
               <span className="text-danger">{passwordError}</span>
             </div>
-
             <div className='form-row' data-testid='cpassword'>
               <label>Confirmação Password*</label>
               <input type='password' className='form-control' name='cpassword' value={cpassword} onChange={this.handleInputChange} required />
               <span className='text-danger'>{cpasswordError}</span>
             </div>
-
             <div className='form-row'>
               <button type='button' className='btn btn-primary' onClick={() => this.submit()} disabled={!name || !password || !cpassword}>Registrar</button>
             </div>

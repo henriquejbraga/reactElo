@@ -1,17 +1,12 @@
-// import { useState } from "react"
 import { Link } from "react-router-dom";
-
 import elogroup from '../elogroup.png'
 import '../css/LeadPanel.css'
 
 export default function LeadPanel() {
-  // const [lead, setLead] = useState([]);
-
 
   const username = JSON.parse(localStorage.getItem('user'))
   const render = () => {
     return !username ? null : username.map(((name) => {
-      console.log(name);
       return (
         <tr key={name}>
           <td>
