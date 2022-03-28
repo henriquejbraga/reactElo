@@ -1,6 +1,13 @@
 # Desafio EloGroup
 
-  Foi solicitado para desenvolvermos a camada de FrontEnd de uma página conforme o desafio proposto.
+  A aplicação desenvolvida tem como objetivo fazer a manutenção de Leads, foi implementado a camada de FrontEnd usando REACT.
+  - Tela de Login
+  Possui input para login de usuário e password.
+  - Tela Novo Lead
+   Possui inputs para cadastrar lead;
+  Ao salvar novo lead, esse é incluído no painel de leads (próxima tela).
+  - Tela Painel de Leads
+  Possui uma tabela para exibição dos leads por status.
 
 ## Para rodar o projeto:
 
