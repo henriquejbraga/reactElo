@@ -75,7 +75,7 @@ class FormValidation extends React.Component {
     const { redirect, name, nameError, password, passwordError, cpassword, cpasswordError } = this.state;
     if (redirect) return <Redirect to='/leadpanel' />;
     return (
-      <div className='login'>
+      <div className='login' data-testid='login'>
         <div className='center'>
           <img src={elogroup} alt='elogroup' className='elogrouplogin' />
           <div className='row'>
@@ -86,13 +86,13 @@ class FormValidation extends React.Component {
               <span className='text-danger'>{nameError}</span>
             </div>
 
-            <div className='form-row'>
+            <div className='form-row' data-testid='password'>
               <label>Password*</label>
               <input type='password' className='form-control' name='password' value={password} onChange={this.handleInputChange} required />
               <span className="text-danger">{passwordError}</span>
             </div>
 
-            <div className='form-row'>
+            <div className='form-row' data-testid='cpassword'>
               <label>Confirmação Password*</label>
               <input type='password' className='form-control' name='cpassword' value={cpassword} onChange={this.handleInputChange} required />
               <span className='text-danger'>{cpasswordError}</span>

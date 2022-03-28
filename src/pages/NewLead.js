@@ -35,7 +35,7 @@ export default function NewLead() {
 
   return (
     <main>
-      <div className='newlead' >
+      <div className='newlead' data-testid='newlead' >
         <div className='center'>
           <img src={elogroup} alt='elogroup' className='elogroup' />
           <br></br>
