@@ -39,7 +39,7 @@ export default function NewLead() {
         <div className='center'>
           <img src={elogroup} alt='elogroup' className='elogroup' />
           <br></br>
-          <div className='input'>
+          <div className='input' data-testid='nome'>
             <label>Nome*</label>
             <input
               type='text'
@@ -49,7 +49,7 @@ export default function NewLead() {
             />
           </div>
 
-          <div className='input'>
+          <div className='input' data-testid='tel'>
             <label>Telefone*</label>
             <input
               type='text'
@@ -59,7 +59,7 @@ export default function NewLead() {
             />
           </div>
 
-          <div className='input'>
+          <div className='input' data-testid='email'>
             <label>Email*</label>
             <input
               type='mail'
@@ -69,7 +69,7 @@ export default function NewLead() {
             />
           </div>
         </div>
-        <div className='checkbox'>
+        <div className='checkbox' data-testid='checkbox' >
           <Checkbox />
         </div>
 

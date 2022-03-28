@@ -26,7 +26,7 @@ export default function LeadPanel() {
     <div className='leadpanel'>
       <img src={elogroup} alt='elogroup' className='elogroupleadpanel' />
       <h3 className='h3'> Painel de Leads</h3>
-      <div className='link'>
+      <div className='link' data-testid='link'>
         <Link to='/newlead'>Novo Lead (+)</Link>
       </div>
       <table>
@@ -37,7 +37,7 @@ export default function LeadPanel() {
             <th>Reunião Agendada</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody data-testid='panellead'>
           {render()}
         </tbody>
       </table>
