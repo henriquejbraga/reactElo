@@ -37,7 +37,7 @@ class FormValidation extends React.Component {
       nameError = 'Name field is required';
     }
 
-    const strongRegex = new RegExp('^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$');
+    const strongRegex = new RegExp('^(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*#?&])[a-z\\d@$!%*#?&]{8,}$');
     if (!this.state.password || strongRegex.test(this.state.cpassword) === false) {
       passwordError = 'Password precisa ter oito caracterese ao menos um caracter especial, um caracter numérico e um alfanumérico'
     }

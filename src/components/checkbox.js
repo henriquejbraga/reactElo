@@ -21,14 +21,14 @@ export default function Checkbox() {
       setLeads(tempLead);
     } else {
       let tempLead = leads.map((lead) =>
-      lead.name === name ? { ...lead, isChecked: checked } : lead
+        lead.name === name ? { ...lead, isChecked: checked } : lead
       );
       setLeads(tempLead);
     }
   };
 
   return (
-    <div className="container my-4">
+    <div className="container">
       <h3>Novo Lead</h3>
       <form className="form w-100">
         <h3>Oportunidades*</h3>
@@ -40,7 +40,7 @@ export default function Checkbox() {
             checked={!leads.some((lead) => lead.isChecked !== true)}
             onChange={handleChange}
           />
-          <label className="form-check-label ms-2">All Select</label>
+          <label className="form-check-label">Selecionar todos</label>
         </div>
         {leads.map((lead, index) => (
           <div className="form-check" key={index}>
@@ -52,7 +52,7 @@ export default function Checkbox() {
               onChange={handleChange}
               required
             />
-            <label className="form-check-label ms-2">{lead.name}</label>
+            <label className="form-check-label">{lead.name}</label>
           </div>
         ))}
       </form>
