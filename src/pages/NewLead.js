@@ -56,13 +56,13 @@ export default function NewLead() {
               onChange={handleChange}
             />
           </div>
-          <div className='checkbox' data-testid='checkbox' >
+          <div className='checkbox' data-testid='checkbox' required>
             <Checkbox />
           </div>
           <div className='button'>
             <button
               type='button'
-              disabled={!form.username || !form.tel || !form.email}
+              disabled={(!form.username || !form.tel || !form.email)}
               onClick={saveLocalStorage}
             >
               Salvar
