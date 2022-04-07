@@ -31,19 +31,21 @@ export default function Login() {
   };
 
   return (
-    <div className='login'>
+    <main className='login'>
       <div className='center'>
-      <img src={elogroup} alt='elogroup' className='elogrouplogin' />
-        <label>Nome*</label>
-        <input
-          type="text"
-          name="name"
-          data-testid="name-input"
-          value={form.name}
-          onChange={handleChange}
-        />
+        <img src={elogroup} alt='elogroup' className='elogrouplogin' />
+          <label>Nome*</label>
         <div>
+          <input
+            type="text"
+            name="name"
+            data-testid="name-input"
+            value={form.name}
+            onChange={handleChange}
+          />
+        </div>
           <label>Password*</label>
+        <div>
           <input
             type="password"
             name="password"
@@ -52,8 +54,8 @@ export default function Login() {
             onChange={handleChange}
           />
         </div>
-        <div>
           <label>Confirmação Password*</label>
+        <div>
           <input
             type="password"
             name="cpassword"
@@ -71,6 +73,6 @@ export default function Login() {
           Registrar
         </button>
       </div>
-    </div>
+    </main>
   );
 }
