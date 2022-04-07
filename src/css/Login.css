@@ -8,13 +8,13 @@
   position: absolute;
 }
 .center{
-  width: 250px;
+  width: 185px;
   height: 250px;
 }
 .elogrouplogin{
   width: 185px;
   height: 50px;
 }
-.text-danger{
+/* .text-danger{
   color: red;
-}
+} */
