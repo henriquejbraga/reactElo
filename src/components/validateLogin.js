@@ -3,16 +3,18 @@ import { useHistory } from 'react-router-dom';
 
 const PASSWORD_VALID = /^(.{0,8}|[^0-9]*|[^a-z]*|[a-zA-Z0-9]*)$/;
 
-function Login() {
+export default function Login() {
   const history = useHistory();
-  const [form, setForm] = useState({ name: '', password: '' });
+  const [form, setForm] = useState({ name: '', password: '', cpassword: '' });
 
   const handleForm = ({ target }) => {
     const { name, value } = target;
     setForm({ ...form, [name]: value });
   };
 
-  const validation = (pass) => PASSWORD_VALID.test(pass)
+  const validation = (pass) => PASSWORD_VALID.test(pass);
+  const validationEqual = () => form.password === form.cpassword;
+  const validationName = () => form.name.length > 1;
 
   const moveAndSaveLocalStorage = () => {
     if (localStorage.getItem('name') === null) {
@@ -27,6 +29,7 @@ function Login() {
     <div>
       <h1>Login</h1>
       <div>
+        <label>Nome*</label>
         <input
           type="text"
           name="name"
@@ -36,19 +39,29 @@ function Login() {
           onChange={(e) => handleForm(e)}
         />
         <div>
+          <label>Password*</label>
           <input
             type="password"
             name="password"
-            placeholder="password"
             data-testid="password-input"
             value={form.password}
+            onChange={(e) => handleForm(e)}
+          />
+        </div>
+        <div>
+          <label>Confirmação Password*</label>
+          <input
+            type="password"
+            name="cpassword"
+            data-testid="password-input"
+            value={form.cpassword}
             onChange={(e) => handleForm(e)}
           />
         </div>
         <button
           type="button"
           data-testid="login-submit-btn"
-          disabled={validation(form.password)}
+          disabled={validation(form.password && form.cpassword) || !validationEqual() | !validationName()}
           onClick={moveAndSaveLocalStorage}
         >
           Entrar
@@ -57,5 +70,3 @@ function Login() {
     </div>
   );
 }
-
-export default Login;
