@@ -36,6 +36,7 @@ export default function LeadPanel() {
           {render()}
         </tbody>
       </table>
+      <Link to='/'>Login</Link>
     </div>
   )
 }

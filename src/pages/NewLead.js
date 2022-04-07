@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import Checkbox from '../components/checkbox';
 import elogroup from '../elogroup.png';
 import '../css/NewLead.css';
@@ -27,7 +27,9 @@ export default function NewLead() {
     <main>
       <div className='newlead' data-testid='newlead' >
         <div className='center'>
-          <img src={elogroup} alt='elogroup' className='elogroup' />
+          <img src={elogroup} alt='elogroup' className='elogroup'/>
+          <div className='link'>
+          </div>
           <h3>Novo Lead</h3>
           <div className='input' data-testid='nome'>
             <label>Nome*</label>
