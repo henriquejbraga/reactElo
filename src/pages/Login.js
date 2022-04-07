@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import elogroup from '../elogroup.png'
+import '../css/Login.css'
+
 
 const PASSWORD_VALID = /^(.{0,8}|[^0-9]*|[^a-z]*|[a-zA-Z0-9]*)$/;
 
@@ -28,9 +31,9 @@ export default function Login() {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <div>
+    <div className='login'>
+      <div className='center'>
+      <img src={elogroup} alt='elogroup' className='elogrouplogin' />
         <label>Nome*</label>
         <input
           type="text"
@@ -65,7 +68,7 @@ export default function Login() {
           disabled={validation(form.password && form.cpassword) || !validationEqual() | !validationName()}
           onClick={moveAndSaveLocalStorage}
         >
-          Entrar
+          Registrar
         </button>
       </div>
     </div>
