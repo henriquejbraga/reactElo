@@ -27,7 +27,7 @@ export default function Login() {
     } else {
       localStorage.setItem('name', JSON.stringify([...JSON.parse(localStorage.getItem('name')), form.name]))
     }
-    return history.push('/newlead');
+    return history.push('/leadpanel');
   };
 
   return (

@@ -8,13 +8,11 @@ export default function NewLead() {
   const [form, setForm] = useState({ username: '', tel: '', email: '' });
   const [redirect, setRedirect] = useState(false)
 
-  const dataObjeto = (form.username)
-
-  const localStoragess = () => {
+  const saveLocalStorage = () => {
     if (localStorage.getItem('user') === null) {
-      localStorage.setItem('user', JSON.stringify([dataObjeto]))
+      localStorage.setItem('user', JSON.stringify([form.username]))
     } else {
-      localStorage.setItem('user', JSON.stringify([...JSON.parse(localStorage.getItem('user')), dataObjeto]))
+      localStorage.setItem('user', JSON.stringify([...JSON.parse(localStorage.getItem('user')), form.username]))
     }
   }
 
@@ -26,8 +24,8 @@ export default function NewLead() {
   const handleClick = (event) => {
     event.preventDefault();
     setRedirect({ redirect: true });
-    localStoragess()
-    alert('lead cadastrado com sucesso')
+    saveLocalStorage();
+    alert('Lead cadastrado com sucesso!');
   }
 
   if (redirect) return <Redirect to='/leadpanel' />;
@@ -65,18 +63,18 @@ export default function NewLead() {
               onChange={handleChange}
             />
           </div>
-        </div>
-        <div className='checkbox' data-testid='checkbox' >
-          <Checkbox />
-        </div>
-        <div className='button'>
-          <button
-            type='button'
-            disabled={!form.email || !form.username || !form.tel}
-            onClick={handleClick}
-          >
-            Salvar
-          </button>
+          <div className='checkbox' data-testid='checkbox' >
+            <Checkbox />
+          </div>
+          <div className='button'>
+            <button
+              type='button'
+              disabled={!form.username || !form.tel || !form.email}
+              onClick={handleClick}
+            >
+              Salvar
+            </button>
+          </div>
         </div>
       </div>
     </main >
