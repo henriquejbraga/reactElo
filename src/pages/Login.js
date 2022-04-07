@@ -31,7 +31,7 @@ export default function Login() {
   };
 
   return (
-    <main className='login'>
+    <main className='login' data-testid='login'>
       <div className='center'>
         <img src={elogroup} alt='elogroup' className='elogrouplogin' />
           <label>Nome*</label>
@@ -59,7 +59,7 @@ export default function Login() {
           <input
             type="password"
             name="cpassword"
-            data-testid="password-input"
+            data-testid="cpassword-input"
             value={form.cpassword}
             onChange={handleChange}
           />

@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react';
 
 import renderPath from './helpers/renderPath';
 
-describe('2 - Crie um formulário para identificação', () => {
+describe('Crie um formulário para identificação', () => {
   beforeEach(() => {
     localStorage.clear();
     jest.restoreAllMocks();
@@ -12,8 +12,8 @@ describe('2 - Crie um formulário para identificação', () => {
     async () => {
       renderPath("/");
 
-      expect(screen.getByText(/nome/i)).toBeInTheDocument();
-      expect(screen.getByTestId('password')).toBeInTheDocument();
-      expect(screen.getByTestId('cpassword')).toBeInTheDocument();
+      expect(screen.getByTestId('name-input')).toBeInTheDocument();
+      expect(screen.getByTestId('password-input')).toBeInTheDocument();
+      expect(screen.getByTestId('cpassword-input')).toBeInTheDocument();
     });
 })
