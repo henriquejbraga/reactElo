@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import Checkbox from '../components/checkbox';
 import elogroup from '../elogroup.png';
 import '../css/NewLead.css';
 
 export default function NewLead() {
+  const history = useHistory();
   const [form, setForm] = useState({ username: '', tel: '', email: '' });
-  const [redirect, setRedirect] = useState(false)
 
   const saveLocalStorage = () => {
     if (localStorage.getItem('user') === null) {
@@ -14,21 +14,14 @@ export default function NewLead() {
     } else {
       localStorage.setItem('user', JSON.stringify([...JSON.parse(localStorage.getItem('user')), form.username]))
     }
+    alert('Lead cadastrado com sucesso!');
+    return history.push('/leadpanel');
   }
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
     setForm({ ...form, [name]: value });
   };
-
-  const handleClick = (event) => {
-    event.preventDefault();
-    setRedirect({ redirect: true });
-    saveLocalStorage();
-    alert('Lead cadastrado com sucesso!');
-  }
-
-  if (redirect) return <Redirect to='/leadpanel' />;
 
   return (
     <main>
@@ -70,7 +63,7 @@ export default function NewLead() {
             <button
               type='button'
               disabled={!form.username || !form.tel || !form.email}
-              onClick={handleClick}
+              onClick={saveLocalStorage}
             >
               Salvar
             </button>
