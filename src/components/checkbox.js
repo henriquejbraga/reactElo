@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import '../css/checkbox.css'
-// https://www.youtube.com/watch?v=mGV9r0wgCrI
 
 const checkList = [{ name: "RPA" }, { name: "Produto Digital" }, { name: "Analytics" }, { name: "BPM" }];
 
@@ -29,8 +28,7 @@ export default function Checkbox() {
 
   return (
     <div className="container">
-      <h3>Novo Lead</h3>
-      <form className="form w-100">
+      <form className="form">
         <h3>Oportunidades*</h3>
         <div className="form-check">
           <input
@@ -50,7 +48,6 @@ export default function Checkbox() {
               name={lead.name}
               checked={lead.isChecked || false}
               onChange={handleChange}
-              required
             />
             <label className="form-check-label">{lead.name}</label>
           </div>

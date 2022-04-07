@@ -20,12 +20,10 @@
   width: 200px;
 }
 .elogroup{
-  width: 400px;
+  width: 200px;
   height: 70px;
 }
 .button{
   display: flex;
   flex-direction: column;
-  align-items:flex-end;
-  justify-content: center;
 }
