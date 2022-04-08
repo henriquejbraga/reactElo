@@ -26,7 +26,7 @@ export default function NewLead() {
   return (
     <main>
       <div className='newlead' data-testid='newlead' >
-        <div className='center'>
+        <form className='center' onSubmit={saveLocalStorage}>
           <img src={elogroup} alt='elogroup' className='elogroup'/>
           <div className='link'>
           </div>
@@ -38,6 +38,7 @@ export default function NewLead() {
               name='username'
               value={form.username}
               onChange={handleChange}
+              required
             />
           </div>
           <div className='input' data-testid='tel'>
@@ -47,15 +48,17 @@ export default function NewLead() {
               name='tel'
               value={form.tel}
               onChange={handleChange}
+              required
             />
           </div>
           <div className='input' data-testid='email'>
             <label>Email*</label>
             <input
-              type='mail'
+              type='email'
               name='email'
               value={form.email}
               onChange={handleChange}
+              required
             />
           </div>
           <div className='checkbox' data-testid='checkbox' required>
@@ -63,14 +66,14 @@ export default function NewLead() {
           </div>
           <div className='button'>
             <button
-              type='button'
-              disabled={(!form.username || !form.tel || !form.email)}
-              onClick={saveLocalStorage}
+              type='submit'
+              // disabled={(!form.username || !form.tel || !form.email)}
+              // onClick={saveLocalStorage}
             >
               Salvar
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </main >
   );

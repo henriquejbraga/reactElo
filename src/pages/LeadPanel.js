@@ -1,11 +1,13 @@
+import React from 'react';
 import { Link } from "react-router-dom";
 import elogroup from '../elogroup.png'
 import '../css/LeadPanel.css'
 
 export default function LeadPanel() {
 
-  const username = JSON.parse(localStorage.getItem('user'))
-  const render = () => {
+  const username = JSON.parse(localStorage.getItem('user'));
+
+  const renderLead = () => {
     return !username ? null : username.map(((name) => {
       return (
         <tr key={name}>
@@ -33,7 +35,7 @@ export default function LeadPanel() {
           </tr>
         </thead>
         <tbody data-testid='panellead'>
-          {render()}
+          {renderLead()}
         </tbody>
       </table>
       <Link to='/'>Login</Link>
