@@ -68,7 +68,7 @@ export default function Login() {
           />
         </div>
         <button
-          type="button"
+          type="submit"
           data-testid="login-submit-btn"
           disabled={validation(form.password && form.cpassword) || !validationEqual() | !validationName()}
           onClick={moveAndSaveLocalStorage}
