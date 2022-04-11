@@ -11,7 +11,7 @@ export default function LeadPanel() {
     return !username ? null : username.map(((name) => {
       return (
         <tr key={name}>
-          <td>
+          <td draggable>
             {name}
           </td>
         </tr>
@@ -34,11 +34,12 @@ export default function LeadPanel() {
             <th>Reunião Agendada</th>
           </tr>
         </thead>
-        <tbody data-testid='panellead'>
+        <tbody data-testid='panellead'
+        >
           {renderLead()}
         </tbody>
       </table>
       <Link to='/'>Login</Link>
-    </div>
+    </div >
   )
 }
